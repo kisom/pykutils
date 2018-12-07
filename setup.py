@@ -10,7 +10,7 @@ with open('LICENSE.txt') as f:
 
 setup(
     name='kutils',
-    version='0.2.0',
+    version='0.3.0',
     description="Kyle's utilities",
     long_description=readme,
     author='K. Isom',
