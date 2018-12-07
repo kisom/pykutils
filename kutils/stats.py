@@ -19,7 +19,7 @@ class DataSet:
     quartile will trim the dataset.
     """
 
-    __slots__ = ['data', 'orig_data', 'mu', 'stdev', 'alpha', 'size', 'sum_x', 'sum_x2']
+    __slots__ = ["data", "orig_data", "mu", "stdev", "alpha", "size", "sum_x", "sum_x2"]
 
     def __init__(self, data, alpha=1.96):
         """
@@ -133,7 +133,7 @@ def variance(data, mu=None):
 def meanvar3(n, sum_x, sum_x2, alpha=1.96):
     """Compute the mean and variance from the three variables."""
     mu = sum_x / n
-    var = (sum_x2 / n) - ((sum_x ** 2) / (n **2))
+    var = (sum_x2 / n) - ((sum_x ** 2) / (n ** 2))
     ci = alpha * math.sqrt(var / n)
     return mu, var, ci
 
@@ -194,6 +194,7 @@ def linear_regression_2d(data):
     r = top / math.sqrt(sum(x_vars) * sum(y_vars))
     return b, a, r
 
+
 def monty_hall(verbose=False):
     """
     Run a Monty Hall simulation modeled on the choices available to
@@ -201,18 +202,18 @@ def monty_hall(verbose=False):
     False otherwise. Set verbose to True to print messages about
     what's happening.
     """
-    pick_one = lambda l : l[random.randint(0, len(l)-1)]
+    pick_one = lambda l: l[random.randint(0, len(l) - 1)]
     # we have three choices for a door
     choices = [1, 2, 3]
     # monty has three choices for a door
     mchoices = [1, 2, 3]
-    s = u''
+    s = u""
 
     # first: where is it? remove this from the choices, because monty won't
     # pick it.
     car = pick_one(mchoices)
     mchoices.remove(car)
-    s += u'car←{}, '.format(car)
+    s += u"car←{}, ".format(car)
 
     # second: I pick a door, and remove it from the choices, because monty
     # won't pick it. remove it from my choices, because I won't pick it.
@@ -220,24 +221,24 @@ def monty_hall(verbose=False):
     choices.remove(door)
     if door in mchoices:
         mchoices.remove(door)
-    s += u'guess1←{}, '.format(door)
+    s += u"guess1←{}, ".format(door)
 
     # now monty has to pick a door to show us. we have to remove this choice from
     # our list.
     shown = pick_one(mchoices)
-    s += u'shown←{}, '.format(shown)
+    s += u"shown←{}, ".format(shown)
     choices.remove(shown)
 
     door = pick_one(choices)
-    s += u'guess2←{}, '.format(door)
+    s += u"guess2←{}, ".format(door)
 
     if door == car:
-        s += u'(Y)'
+        s += u"(Y)"
         if verbose:
             print(s)
         return True
     else:
-        s += u'(N)'
+        s += u"(N)"
         if verbose:
             print(s)
         return False

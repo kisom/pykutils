@@ -17,6 +17,7 @@ want to re-use across projects.
    intro
    dicts
    api/dicts
+   api/stats
 
 
 
